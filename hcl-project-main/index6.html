@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
+<body>
+    <div class="space"><div id="alert-container"></div></div>   
+    <section class="main">
+    <section class="rout">
+        <div class="ham" onclick="anime()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line" id="line3"></div>
+        </div>
+        <ul>
+            <li class="rout-li" onclick="rout(['.body-patient'],['.patient-display','.emergenecy','.doctor-details'])"><img src="add.png" class="nav-img"></li>
+            <li class="rout-li" onclick="rout(['.patient-display'],['.body-patient','.emergenecy','.doctor-details'])"><img src="layout.png" class="nav-img"></li>
+            <li class="rout-li" onclick="rout(['.emergenecy'],['.body-patient','.patient-display','.doctor-details'])"><img src="em.png.webp" class="nav-img"></li>
+        </ul>
+    </section>
+    <section class="body-sub">
+        <section class="patient-block">
+        <section class="body-patient">
+            <h3>Healthcare Management System</h3>
+            <section class="patient-form">
+                <h2>Add Patient</h2>
+                <form >
+                    <label for="patient-id" >Patient ID:</label>
+                    <input id="patient-id" class="patient-input" placeholder="Enter your Id" required value="adsklf">
+                    <label for="doctor-id" >Docter Name:</label>
+                    <input id="doctor-id" class="patient-input" placeholder="Enter your Doctor name" required value="adsklf">
+                    <label for="patient-name">Patient Name:</label>
+                    <input type="text" id="patient-name" class="patient-input"  placeholder="Enter your Name" required value="adsklf">
+                    <label for="patient-disease" >Disease:</label>
+                    <input type="text" id="patient-disease" class="patient-input"  placeholder="Enter Recommended Treatment" required value="adsklf">
+                    <label for="patient-age" >Age:</label>
+                    <input type="text" id="patient-age" class="patient-input"  placeholder="Enter your Age " required value="adsklf">
+                    <button onclick="get_values(event)" class="button">Add Patient</button>
+                    <!-- <img src="add.png" class="nav-img"> -->
+                </form>
+            </section>
+        </section>
+        <section class="patient-display">
+            <h2>Patients</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Patient Name</th>
+                        <th>Doctor Name</th>
+                        <th>Disease</th>
+                        <th>Age</th>
+                        <th>Timestamp</th>
+                        <!-- <th>Delete</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Patient data will be added here -->
+                </tbody>
+            </table>
+        </section>
+    </section>
+
+<section class="random"></section>
+<section class="emergenecy">
+    <h2 class="m-4 mb-5">Emergency Entry</h2>
+    <div class="patient-entry-emergency">
+        <label for="name">Patient Name : </label>
+        <input type="text" name="" id="name-patient" >
+    </div>
+    <div class="cat">
+        <div class="cont mb-5">
+            <div class="card" style="width: 18rem;">
+                <img src="download.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Fainted</h5>
+                  <p class="card-text">if The person will feel flushed (warm or hot are also common feelings), followed by sudden weakness and loss of consciousness. They'll go limp and often break out in a cold sweat</p>
+                  <button class="card-btn mt-3" onclick="return_selected(this)" id="Fainted">Select</button>
+                </div>
+              </div>
+            <div class="card" style="width: 18rem;">
+                <img src="k.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Brain Damage</h5>
+                  <p class="card-text">Symptoms are specific to particular conditions and may include headache, changes in vision and speech, cognitive and memory problems, lack of muscle control or coordination.</p>
+                  <button class="card-btn mt-3" onclick="return_selected(this)" id="Brain-Damage">Select</button>
+                </div>
+              </div>
+            <div class="card" style="width: 18rem;">
+                <img src="l.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Heart Attack</h5>
+                  <p class="card-text">heart attack occurs when one or more coronary arteries get blocked. Over time, a coronary artery can narrow due to the build-up of various substances, including cholesterol (atherosclerosis).</p>
+                  <button class="card-btn mt-3" onclick="return_selected(this)" id="Heart-Attack">Select</button>
+                </div>
+              </div>
+            <div class="card" style="width: 18rem;">
+                <img src="ai.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Allergy</h5>
+                  <p class="card-text"> Allergies occur when your immune system reacts to a foreign substance  such as pollen, bee venom or pet dander or a food that doesn't cause a reaction in most people.</p>
+                  <button class="card-btn mt-3" onclick="return_selected(this)" id="Allergy">Select</button>
+                </div>
+              </div>
+        </div>
+        <div class="cont">
+            <div class="card" style="width: 18rem;">
+                <img src="ha.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Heavy Acccident</h5>
+                  <p class="card-text">Dizziness and lightheadedness that affect balance can cause the head to feel heavier. These symptoms can also be those of a balance disorder. Several different types of balance disorder exist.</p>
+                  <button class="card-btn mt-3" onclick="return_selected(this)" id="Heavy Acccident">Select</button>
+                </div>
+              </div>
+            <div class="card" style="width: 18rem;">
+                <img src="r.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Skin Rashes</h5>
+                  <p class="card-text">Contact dermatitisis one of the most common causes of rashes. This type of rash occurs when the skin comes into direct contact with a foreign substance that causes an adverse reaction, leading to a rash.</p>
+                  <button class="card-btn mt-3" onclick="return_selected(this)" id="skin-Rashes">Select</button>
+                </div>
+              </div>
+            <div class="card" style="width: 18rem;">
+                <img src="e.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Eyes</h5>
+                  <p class="card-text">A condition that affects any of the eye components such as cornea, iris, pupil, optic nerve, lens, retina, macula, choroid, conjunctiva or the vitreous.</p>
+                  <button class="card-btn mt-3" onclick="return_selected(this)" id="Eyes">Select</button>
+                </div>
+              </div>
+            <div class="card" style="width: 18rem;">
+                <img src="er.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ears</h5>
+                  <p class="card-text">Ear infections A person may have itchy ears as the result of an infection.</p>
+                  <button class="card-btn mt-3" onclick="return_selected(this)" id="Ears">Select</button>
+                </div>
+              </div>
+            </div>
+            <div class="forms">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Patient Condition</label>
+                    <textarea type="description" class="form-control" placeholder="Example input placeholder" id="patient-condition"></textarea>
+                </div>
+            </div>
+            <button class="generate-report" onclick="generate_report()">Generate Report</button>
+        </div>
+    </section>
+    <section class="doctor-details">
+        <h3>Doctors Report</h3>
+        <div class="doctor-info">
+        <div class="card" style="width: 18rem;">
+            <img src="em.png.webp" class="card-img-top" alt="em.png">
+                <div class="card-body">
+                    <h5 class="card-title" id="doctor-name">Doctor Name : venkat</h5>
+                    <p class="card-text" id="specilization">Specialization : orthopedic</p>
+                    <p class="card-text" id="p-name">Patient Name : </p>
+                </div>
+        </div>
+    </div>    
+    <div class="patient-prescription">
+        <h3>Patient's Condition </h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate explicabo, totam eum ullam ea, voluptatum aperiam eveniet unde nobis perferendis deserunt tempore perspiciatis modi fugiat consequuntur? Consequatur repudiandae deleniti quo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi blanditiis, nihil pariatur praesentium vitae quos earum hic quia accusamus possimus magnam saepe, odio, facere officiis reiciendis eius consequatur dolore eos dolor nostrum non molestiae. Assumenda explicabo illum doloremque consectetur impedit exercitationem, alias amet sunt voluptates distinctio voluptatibus, consequatur, quis quo!
+    </div>
+    <div class="doctor-prescription">
+        <h3>Doctor's Solution </h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate explicabo, totam eum ullam ea, voluptatum aperiam eveniet unde nobis perferendis deserunt tempore perspiciatis modi fugiat consequuntur? Consequatur repudiandae deleniti quo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi blanditiis, nihil pariatur praesentium vitae quos earum hic quia accusamus possimus magnam saepe, odio, facere officiis reiciendis eius consequatur dolore eos dolor nostrum non molestiae. Assumenda explicabo illum doloremque consectetur impedit exercitationem, alias amet sunt voluptates distinctio voluptatibus, consequatur, quis quo!
+    </div>
+    </section>
+</section>      
+</section>
+    <section class="login-page">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required value="admin">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required value="admin">
+                </div>
+                <button onclick="navigate(event)">Login</button>
+            </form>
+        </div>
+    </section>
+</body>
+<script>
+    function showAlert(message) {
+        document.getElementById("alert-container").style.display = "flex";
+        const alertElem = document.createElement("div");
+        alertElem.className = "alert-dismissible";
+        alertElem.innerHTML = `
+          <button type="button" id="close" class='close' onclick="closeAlert()" data-dismiss="alert"> X </button>
+          ${message}
+        `;
+      
+        const container = document.getElementById("alert-container");
+        let child = document.querySelectorAll('.close')
+        if (child.length ===0) {
+          container.appendChild(alertElem);
+        }
+      
+        setTimeout(function () {
+          alertElem.remove();
+          alert_msg = 0;
+        }, 2000);
+      }
+      
+      function closeAlert() {
+        const container = document.getElementById("alert-container");
+        
+        container.innerHTML = "";
+        alert_msg = 0;
+      }
+    const navigate = (e) => {
+        e.preventDefault();
+    
+        if (document.getElementById('username').value === 'admin' && document.getElementById('password').value === 'admin') {
+            change_display(['.main'], ['.login-page']);
+            showAlert('Login Successfull')
+        } else {
+            showAlert('Invalid Username and Password !!')
+        }
+    }
+    
+    function createCard(card_name) {
+        let cardDiv = document.createElement("div");
+        cardDiv.classList.add("card");
+        cardDiv.style.width = "18rem";
+        let cardImage = document.createElement("img");
+        cardImage.src = "..."; 
+        cardImage.classList.add("card-img-top");
+        cardImage.alt = "...";
+        let cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+        let cardTitle = document.createElement("h5");
+        cardTitle.classList.add("card-title");
+        cardTitle.textContent = `${card_name}`;
+        let cardText = document.createElement("p");
+        cardText.classList.add("card-text");
+        cardText.textContent = "Some quick example text to build on the Disease and make up the bulk of the card's content.";
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardText);
+        cardDiv.appendChild(cardImage);
+        cardDiv.appendChild(cardBody);
+        let container = document.getElementsByClassName("doctor-info")[0];
+        container.appendChild(cardDiv);
+    }
+const change_display = (class_flex,class_none)=>{
+    class_flex.forEach(element => {
+        document.querySelectorAll(element)[0].style.display='flex'
+        document.querySelectorAll(element)[0].style.animation='load_page 1s forwards'
+        // document.querySelector('.rout').style.height = 'auto'
+    });
+    class_none.forEach(element => {
+        // document.querySelectorAll(element)[0].style.animation='remove_page 2s forwards'
+        document.querySelectorAll(element)[0].style.display='none'
+        // document.querySelector('.rout').style.height = '100vh'
+    });
+    // setTimeout(() => {
+    // }, 1500);
+}
+let open =true
+
+const anime = ()=>{
+    if (open===true){
+        document.querySelectorAll('.line').forEach((element)=>{
+            element.style.height='1.5px'
+            element.style.width='1.5rem'
+            element.style.margin = '0'
+        })
+        document.querySelectorAll('.line')[0].style.transform = 'rotate(65deg)'
+        document.querySelectorAll('.line')[1].style.transform = 'rotate(-65deg)'
+        document.querySelectorAll('.line')[2].style.display = 'none'
+        // document.querySelectorAll('.rout')[0].classList.remove('anime_backward')
+        document.querySelectorAll('.rout')[0].classList.add('anime_forward')
+        setTimeout(() => {
+            
+            document.querySelectorAll('.rout-li')[0].innerHTML = '<img src="add.png" class="nav-img">  Add patient'
+            document.querySelectorAll('.rout-li')[1].innerHTML = '<img src="layout.png" class="nav-img" >  View Patient Table'
+            document.querySelectorAll('.rout-li')[2].innerHTML = '<img src="em.png" class="nav-img">  Help Desk' 
+            document.querySelectorAll('.rout-li').forEach((element)=>{
+                element.style.display = 'flex'
+            })
+            document.querySelectorAll('.nav-img').forEach((element)=>{
+                element.style.width = '1rem'
+                element.style.height = '1rem'
+                element.style.marginRight = '1rem'
+            })
+            document.querySelectorAll('.rout')[0].classList.remove('anime_forward')
+            document.querySelectorAll('.rout')[0].style.width = '18%'
+        }, 1600);
+        open=false
+    }
+    else{
+        document.querySelectorAll('.line')[0].style.transform = 'rotate(0)'
+        document.querySelectorAll('.line')[1].style.transform = 'rotate(0)'
+        document.querySelectorAll('.line')[2].style.display = 'block'
+        document.querySelectorAll('.line').forEach((element)=>{
+            element.style.height='4px'
+            element.style.width='2rem'
+            element.style.marginTop = '5px'
+            element.style.display = 'block'
+            
+        })
+        open = true
+        change_display(['.rout-li'],['.random'])
+        document.querySelectorAll('.rout-li')[0].innerHTML = '<img src="add.png" class="nav-img">'
+        document.querySelectorAll('.rout-li')[1].innerHTML = '<img src="layout.png" class="nav-img">'
+        document.querySelectorAll('.rout-li')[2].innerHTML = '<img src="em.png" class="nav-img">'
+        document.querySelectorAll('.rout')[0].classList.add('anime_backward')
+        document.querySelectorAll('.nav-img').forEach((element)=>{
+            element.style.width = '2rem'
+            element.style.height = '2rem'
+            element.style.marginRight = '0rem'
+        })
+        
+        setTimeout(() => {
+            document.querySelectorAll('.rout')[0].classList.remove('anime_backward')
+            document.querySelectorAll('.rout')[0].style.width = '5%'
+            }, 2100);
+    }
+    console.log(open)
+}
+
+let mode = 'dark'
+const change_mode = ()=>{
+    if (mode==='dark'){
+        document.querySelector('body').style.backgroundColor='#353740'
+        document.querySelector('header h1').style.color='white'
+        mode='light'
+        document.querySelectorAll('.line').forEach(element => {
+            element.style.backgroundColor='white'
+        });
+        document.querySelector('.rout').style.backgroundColor = '#353740'
+        document.querySelectorAll('.rout-li').forEach(element => {
+            element.style.color='white'
+        });
+        document.querySelector('.mode').innerHTML = 'Light Mode'
+    }else{
+        document.querySelector('body').style.backgroundColor='#f2f2f2'
+        document.querySelector('header h1').style.color='black'
+        mode='dark'
+        document.querySelectorAll('.line').forEach(element => {
+            element.style.backgroundColor='black'
+        });
+        document.querySelectorAll('.rout-li').forEach(element => {
+            element.style.color='black'
+        });
+        document.querySelector('.rout').style.backgroundColor = 'white'
+        document.querySelector('.mode').innerHTML = 'Dark Mode'
+    }
+}
+isna = false
+const get_values = (event)=>{
+    event.preventDefault();
+    let PatientId = document.getElementById('patient-id').value
+    let DocterID = document.getElementById('doctor-id').value
+    let PatientName = document.getElementById('patient-name').value
+    let Disease = document.getElementById('patient-disease').value
+    let Age = document.getElementById('patient-age').value
+    let currentDate = new Date();
+    console.log( PatientId,DocterID,PatientName,Disease,Age)
+let currentYear = currentDate.getFullYear()
+let currentMonth = currentDate.getMonth() + 1; 
+let currentDay = currentDate.getDate(); 
+let currentHour = currentDate.getHours(); 
+let currentMinute = currentDate.getMinutes(); 
+let currentSecond = currentDate.getSeconds(); 
+let formattedDateTime = `${currentDate}-${currentMonth}-${currentYear} ${currentHour}:${currentMinute}:${currentSecond}`;
+// return PatientId,DocterID,PatientName,Disease,Age
+ele = [PatientId,PatientName,DocterID,Disease,Age,formattedDateTime]
+ele.forEach((element)=>{
+    if (element===''){
+        showAlert('Fill the form with suitable values !!')
+        isna = true
+    }
+})
+if (isna===false){
+    addPatientData(PatientId,PatientName,DocterID,Disease,Age,formattedDateTime)
+    setInputsNull()
+}
+
+
+}
+let IDcount = 0
+const addPatientData = (id,Patientname,DocterID, disease, age, timestamp)=> {
+    let tbody = document.querySelector('tbody');
+    let newRow = document.createElement('tr');
+    newRow.setAttribute('id',`record-${IDcount}`)
+    newRow.innerHTML = `
+    <td>${id}</td>
+    <td>${Patientname}</td>
+    <td>${DocterID}</td>
+    <td>${disease}</td>
+    <td>${age}</td>
+    <td>${timestamp}</td>
+    <td><button class='delete-btn' onclick="delete_record(${IDcount})">Delete</button></td>
+    `;
+    tbody.appendChild(newRow);
+    IDcount +=1
+}
+const delete_record = (id)=>{
+    element = document.getElementById(`record-${id}`)
+    element.remove()
+    showAlert('One Record Deleted !!')
+}
+const rout =(class_flex,class_none)=>{
+    change_display(class_flex,class_none);
+    if (document.querySelectorAll('.patient-display')[0].style.display=='flex'){
+        document.querySelectorAll('.rout')[0].style.height=='100vh'
+    }else{
+        document.querySelectorAll('.rout')[0].style.height=='auto'
+    }}
+
+const get_report = ()=>{
+    let name = document.getElementById('name-patient').value
+
+}
+let disease = []
+const return_selected = (btn)=>{
+    let btnId = btn.id;
+    if (document.getElementById(`${btnId}`).textContent=='Select'){
+        if (disease.length >=1){
+            showAlert('One Can be Selected At A Time !!')
+        }
+        else{
+            document.getElementById(`${btnId}`).innerHTML = 'Selected'
+            document.getElementById(`${btnId}`).style.backgroundColor = 'white'
+            document.getElementById(`${btnId}`).style.color = 'black'
+            disease.push(btnId)
+        }
+    }else{
+        console.log('hi')
+        document.getElementById(`${btnId}`).style.backgroundColor = 'black'
+        document.getElementById(`${btnId}`).style.color = 'white'
+        disease.pop(btnId)
+        document.getElementById(`${btnId}`).innerHTML='Select'
+    }
+    console.log(document.getElementById(`${btnId}`).textContent)
+    console.log(disease)
+}
+const generate_report = ()=>{
+    if (disease.length === 0){
+        showAlert('Atleast One Selection Required !!')
+    }else{
+
+        let patient_condition = document.getElementById('patient-condition').value
+        let patient_name = document.getElementById('name-patient').value
+    document.getElementById('p-name').innerText = `Patient Name : ${patient_name}`  
+    document.getElementsByClassName('patient-prescription')[0].textContent = patient_condition
+    document.getElementsByClassName('emergenecy')[0].style.display = 'none'
+    document.getElementsByClassName('doctor-details')[0].style.display = 'flex'
+    if (disease.includes('Fainted')){
+        document.getElementById('specilization').innerText ='Specialization : General Surgon'
+    }
+    else if(disease.includes('Brain-damage')){
+        document.getElementById('specilization').innerText ='Specialization : Neurologists'
+    }
+    else if(disease.includes('Heart-Attack')){
+        document.getElementById('specilization').innerText ='Specialization : Cardiologist'
+    }
+    else if(disease.includes('Bone-Facture')){
+        document.getElementById('specilization').innerText ='Specialization : Iorthopedic'
+    }
+    else if(disease.includes('Heavy Acccident')){
+        document.getElementById('specilization').innerText ='Specialization : General Surgon'
+    }
+    else if(disease.includes('skin-Rashes')){
+        document.getElementById('specilization').innerText ='Specialization : Dermatologist'
+    }
+    else if(disease.includes('Eyes')){
+        document.getElementById('specilization').innerText ='Specialization : Ophthalmologists'
+    }
+    else if(disease.includes('Ears')){
+        document.getElementById('specilization').innerText ='Specialization : Otolaryngologist'
+    }
+    console.log(disease)
+    disease.forEach((element)=>{
+        createCard(element)
+        console.log('done')
+    })
+}
+}
+const setInputsNull = ()=>{
+    const inputElements = document.querySelectorAll('input');
+    inputElements.forEach(function(input) {
+        input.value =''
+    });
+}
+
+</script>
+</html>

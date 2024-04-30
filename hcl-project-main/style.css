@@ -1,0 +1,467 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #dddbe3;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    padding: 1rem 0;
+}
+header h1{
+    font-size: 30px;
+    letter-spacing: 1px;
+    line-height: 46px;
+    word-spacing: 2px;
+    margin: 1rem 0rem ;
+}
+
+.patient-form, .patient-display {
+    background-color: #fff;
+    padding: 5rem;
+    margin-top: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid white;
+}
+.patient-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 2rem 5rem;
+    margin-top: 0;
+}
+.patient-display{
+    display: none;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 0;
+}
+.body-patient{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.patient-form form{
+    width: 100%;
+}
+form label{
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+.rout-li{
+    cursor: pointer;
+    list-style: none;
+    font-size: bold;
+}
+.patient-form h2{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    padding-bottom: 1rem;
+    /* font-size: 30px; */
+}
+.patient-input{
+    display: flex;
+    padding: 7px;
+    width: 75%;
+    height: 1.8rem;
+    border-radius: 3px;
+    border: 1.5px solid gray;
+    outline: none;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+form label, form input {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.button {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+    font-size: 550;
+    letter-spacing: 0.5px;
+}
+.button:hover{
+    font-size: 15px;
+    font-size: 550;
+    letter-spacing: 0.5px;
+    color: black;
+    border: 2.2px solid black;
+    background-color: white;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #353740;
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+.line{
+    height: 4px;
+    background-color: black;
+    width: 2rem;
+    margin-top: 5px;
+    /* transform: skewY(60deg); */
+}
+.ham{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid red; */
+    height: 2rem;
+    padding-top: 1.2rem;
+}
+.body-sub{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    align-items: center;
+}
+.rout{
+    border: 1px solid rgb(214, 214, 214);
+    display: flex;
+    flex-direction: column;
+    width: 5%;
+    padding-top: 2rem;
+    height: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);;
+}
+.anime_forward{
+    animation: ham_move_forward 1.5s forwards;
+}
+.anime_backward{
+    animation: ham_move_backward 1.5s forwards;
+}
+@keyframes ham_move_forward {
+    0%{
+        width: 5%;
+    }
+    100%{
+        width: 18%;
+    }
+}
+@keyframes ham_move_backward {
+    0%{
+        width: 18%;
+    }
+    100%{
+        width: 5%;
+    }
+}
+@keyframes hammove {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(60deg);
+    }
+}
+.rout ul{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+.rout ul li{
+    width: 0;
+    /* color: black; */
+    
+    padding: 1rem 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    /* bottom: 0; */
+    /* background-color: white; */
+    margin-top: .5rem;
+    /* border: 2px solid black; */
+}
+.patient-block{
+    display: flex;
+    width: 82%;
+    /* border: 2px solid rebeccapurple; */
+    justify-content: center;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+.mode{
+    position: absolute;
+    font-size: 18px;
+    border: 2px solid black;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    background-color: #353740;
+    border-radius: 5px;
+    color: white;
+    padding: .5rem 2rem;
+    border: 2px solid white;
+}
+td{
+    text-align: center;
+}
+.rout-li:hover{
+    border: 1.5px solid black;
+}
+body{
+    display: flex;
+    height: max-content;
+}
+.nav-img{
+    width: 2rem;
+    height: 2rem;
+}
+@keyframes load_page {
+    0%{
+        transform: scale3d(0,0,0);
+    }
+    100%{
+        transform: scale3d(1, 1, 1);
+    }
+}
+.rout{
+    height: 100vh;
+}
+.cont{
+    display: flex ;
+    width: 100%;
+    flex: wrap;
+    justify-content: space-evenly;
+}
+.cat{
+    width: 100%;
+}
+.emergenecy{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.emergenecy h2{
+    width: 82%;
+    display: flex;
+    justify-content: center;
+    margin: 0 !important;
+}
+.forms{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 5rem;
+}
+.body-sub{
+    height: auto;
+}
+.card-img-top{
+    width: 90%;
+    height: 12rem;
+}
+.patient-entry-emergency{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    padding: 0rem 6.8rem;
+    margin: 2rem 0rem;
+}
+.patient-entry-emergency label{
+    margin-right: 2rem;
+}
+.patient-block{
+    display: flex;
+}
+.doctor-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.doctor-details{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    overflow: auto;
+}
+.doctor-details h3{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+
+}
+.patient-prescription,.doctor-prescription{
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    padding: 2rem 2rem;
+    border: 2px solid black;
+    background-color: whitesmoke;
+    margin: 2rem 2.4rem;
+    border-radius: 5px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+}
+.patient-prescription h3,.doctor-prescription h3{
+    display: flex;
+    justify-content: start;
+}
+
+.card-btn{
+    background-color: black;
+    color: white;
+    padding: 0.8rem 1rem;
+    margin-top:1rem  !important;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2.1px solid black;
+}
+.doctor-details{
+    display: none;
+}
+.generate-report{
+    background-color: black;
+    color: white;
+    padding: 0.8rem 2rem;
+    margin: 2rem 0rem;
+    margin-left: 5rem;
+    border-radius: 5px;
+    margin-top: 0;
+}
+.generate-report:hover{
+    background-color: white;
+    color: black;
+    border: 2.2px solid black;
+}
+.card-btn:hover{
+    background-color: #353740;
+}
+.main{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+.input-group{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+.input-group label{
+    margin-right: 2rem;
+}
+.login-container{
+    /* border: 2px solid gray; */
+    padding: 5rem;
+}
+.login-container h2{
+    margin-bottom: 3rem;
+    width: 100%;
+    text-align: center;
+}
+.login-container button{
+    background-color: black;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 550;
+}
+.login-container input{
+    border: 2px solid black;
+    border-radius: 3px !important;
+}
+.login-page{
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 100vh;
+}
+body{
+    background-color: whitesmoke !important;
+}
+.alert-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+#alert-container {
+    display: flex;
+    /* visibility: hidden; */
+    justify-content: center;
+    width: 100%;
+}
+
+.space{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .alert-dismissible {
+    display: flex;
+    /* visibility: hidden; */
+    color: #055160;
+    background: #abe2ee;
+    border: 2.2px solid #abe2ee;
+    height: 3rem;
+    border-radius: 5px;
+    align-items: center;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 550;
+    padding: 0px -50px;
+    width: 50%;
+  }
+  #close {
+    color: #055160;
+    background: #abe2ee;
+    font-weight: 650;
+    border: 2px solid #abe2ee;
+    font-size: 16px;
+    padding-right: 15rem;
+    padding-left: 1.5rem;
+  }
+  .delete-btn{
+   background-color: rgb(222, 103, 103); 
+   color: white;
+   font-size: 16px;
+   font-weight: bold;
+   padding: 0.5rem 1.7rem;
+   border-radius: 5px;
+   border: none;
+  }
+  tr{
+    background-color: white;
+  }

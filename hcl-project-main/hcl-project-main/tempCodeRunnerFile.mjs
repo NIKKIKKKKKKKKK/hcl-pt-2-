@@ -1,0 +1,1 @@
+document into the collection
